@@ -8,6 +8,18 @@ export interface Card {
   rarity: string
 }
 
+export interface Deck {
+  id: string
+  totalCards: number
+  heroCard: Card
+  cardsByRarity: {
+    COMMON: number
+    RARE: number
+    UNIQUE: number
+  }
+  cards: Card[]
+}
+
 export default function App() {
   const [focusedCard, setFocusedCard] = useState<Card | null>(null)
   const wsRef = useRef<WebSocket | null>(null)
